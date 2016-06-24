@@ -38,6 +38,20 @@ public class PriorityTest {
 		}
 		System.out.println("最小平均：" + minAvg/5);
 		System.out.println("最大平均：" + maxAvg/5);
+		/*
+		Job Priority:1-2305868
+		Job Priority:1-1063145
+		Job Priority:1-3303310
+		Job Priority:1-6943207
+		Job Priority:1-5033111
+		Job Priority:10-5216364
+		Job Priority:10-5472412
+		Job Priority:10-4568884
+		Job Priority:10-4714181
+		Job Priority:10-9458990
+		最小平均：3729728
+		最大平均：5886166
+		*/
 	}
 	static class Job implements Runnable{
 		private int priority;
@@ -52,9 +66,8 @@ public class PriorityTest {
 				Thread.yield();
 			}
 			while(notEnd){
-				Thread.yield(); //不应该所有的线程都是暂停么？为什么有的线程往下面执行了？
+				Thread.yield();
 				jobCount++;
-				System.out.println(Thread.currentThread().getName() + "=" + jobCount);
 			}
 		}
 	}
